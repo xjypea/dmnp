@@ -1,0 +1,62 @@
+2021/08/09 11:48:34 [notice] 31#31: signal process started
+2021/08/20 11:35:11 [notice] 34#34: signal process started
+2021/08/20 11:36:28 [notice] 48#48: signal process started
+2021/09/08 15:15:20 [notice] 34#34: signal process started
+2021/09/10 15:40:24 [notice] 41#41: signal process started
+2021/09/10 15:54:32 [emerg] 1#1: unknown directive "//" in /etc/nginx/conf.d/yijiunian_cn_80.conf:30
+2021/09/10 15:54:33 [emerg] 1#1: unknown directive "//" in /etc/nginx/conf.d/yijiunian_cn_80.conf:30
+2021/09/10 15:54:33 [emerg] 1#1: unknown directive "//" in /etc/nginx/conf.d/yijiunian_cn_80.conf:30
+2021/09/10 15:54:34 [emerg] 1#1: unknown directive "//" in /etc/nginx/conf.d/yijiunian_cn_80.conf:30
+2021/09/10 15:54:35 [emerg] 1#1: unknown directive "//" in /etc/nginx/conf.d/yijiunian_cn_80.conf:30
+2021/09/10 15:54:37 [emerg] 1#1: unknown directive "//" in /etc/nginx/conf.d/yijiunian_cn_80.conf:30
+2021/09/10 15:54:41 [emerg] 1#1: unknown directive "//" in /etc/nginx/conf.d/yijiunian_cn_80.conf:30
+2021/09/10 15:54:48 [emerg] 1#1: unknown directive "//" in /etc/nginx/conf.d/yijiunian_cn_80.conf:30
+2021/09/15 11:23:07 [emerg] 1#1: unexpected end of file, expecting "}" in /etc/nginx/conf.d/blog_cn_80.conf:15
+2021/09/15 11:23:08 [emerg] 1#1: unexpected end of file, expecting "}" in /etc/nginx/conf.d/blog_cn_80.conf:15
+2021/09/15 11:23:08 [emerg] 1#1: unexpected end of file, expecting "}" in /etc/nginx/conf.d/blog_cn_80.conf:15
+2021/09/15 11:23:09 [emerg] 1#1: unexpected end of file, expecting "}" in /etc/nginx/conf.d/blog_cn_80.conf:15
+2021/09/15 11:23:10 [emerg] 1#1: unexpected end of file, expecting "}" in /etc/nginx/conf.d/blog_cn_80.conf:15
+2021/09/15 11:23:12 [emerg] 1#1: unexpected end of file, expecting "}" in /etc/nginx/conf.d/blog_cn_80.conf:15
+2021/09/15 11:23:16 [emerg] 1#1: unexpected end of file, expecting "}" in /etc/nginx/conf.d/blog_cn_80.conf:15
+2021/09/15 11:23:23 [emerg] 1#1: unexpected end of file, expecting "}" in /etc/nginx/conf.d/blog_cn_80.conf:15
+2021/09/15 11:23:36 [warn] 1#1: conflicting server name "test.cn" on 0.0.0.0:80, ignored
+2021/09/15 11:23:53 [warn] 1#1: conflicting server name "test.cn" on 0.0.0.0:80, ignored
+2021/09/16 10:30:45 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/conf.d/shun-de-fan_cn_80.conf:34
+2021/09/16 10:30:46 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/conf.d/shun-de-fan_cn_80.conf:34
+2021/09/16 10:30:46 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/conf.d/shun-de-fan_cn_80.conf:34
+2021/09/16 10:30:47 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/conf.d/shun-de-fan_cn_80.conf:34
+2021/09/16 10:30:48 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/conf.d/shun-de-fan_cn_80.conf:34
+2021/09/16 10:30:50 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/conf.d/shun-de-fan_cn_80.conf:34
+2021/09/16 10:30:54 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/conf.d/shun-de-fan_cn_80.conf:34
+2021/09/16 10:31:01 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/conf.d/shun-de-fan_cn_80.conf:34
+2021/12/07 15:50:48 [notice] 34#34: signal process started
+2022/02/22 16:04:29 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/apiyijiunian_cn_80.conf:37
+2022/03/29 11:42:53 [notice] 33#33: signal process started
+2022/04/06 18:23:48 [notice] 38#38: signal process started
+2022/04/06 19:55:45 [notice] 143#143: signal process started
+2022/04/07 09:38:04 [emerg] 34#34: invalid number of arguments in "fastcgi_pass" directive in /etc/nginx/conf.d/gd630_cn_80.conf:37
+2022/04/07 09:40:19 [warn] 41#41: conflicting server name "gd630.cn" on 0.0.0.0:80, ignored
+2022/04/07 09:40:19 [notice] 41#41: signal process started
+2022/04/07 09:41:00 [notice] 49#49: signal process started
+2022/04/07 09:42:51 [notice] 64#64: signal process started
+2022/04/07 11:43:36 [notice] 77#77: signal process started
+2022/04/18 09:48:15 [notice] 32#32: signal process started
+2022/04/28 16:26:12 [notice] 40#40: signal process started
+2022/04/29 17:34:52 [notice] 54#54: signal process started
+2022/05/07 11:36:36 [notice] 33#33: signal process started
+2022/07/01 09:48:56 [emerg] 1#1: duplicate location "/" in /etc/nginx/conf.d/tp6_cn_80.conf:30
+2022/07/01 09:48:57 [emerg] 1#1: duplicate location "/" in /etc/nginx/conf.d/tp6_cn_80.conf:30
+2022/07/01 09:48:58 [emerg] 1#1: duplicate location "/" in /etc/nginx/conf.d/tp6_cn_80.conf:30
+2022/07/01 09:48:59 [emerg] 1#1: duplicate location "/" in /etc/nginx/conf.d/tp6_cn_80.conf:30
+2022/07/01 09:49:00 [emerg] 1#1: duplicate location "/" in /etc/nginx/conf.d/tp6_cn_80.conf:30
+2022/07/01 09:49:02 [emerg] 1#1: duplicate location "/" in /etc/nginx/conf.d/tp6_cn_80.conf:30
+2022/07/01 09:49:06 [emerg] 1#1: duplicate location "/" in /etc/nginx/conf.d/tp6_cn_80.conf:30
+2022/07/01 09:49:12 [emerg] 1#1: duplicate location "/" in /etc/nginx/conf.d/tp6_cn_80.conf:30
+2022/07/01 09:49:26 [emerg] 1#1: duplicate location "/" in /etc/nginx/conf.d/tp6_cn_80.conf:30
+2022/07/08 11:27:06 [notice] 45#45: signal process started
+2022/08/02 17:10:59 [notice] 120#120: signal process started
+2022/08/02 17:55:29 [warn] 1#1: conflicting server name "yijiunian.cn" on 0.0.0.0:80, ignored
+2022/08/05 12:20:13 [notice] 48#48: signal process started
+2022/08/05 12:21:20 [notice] 55#55: signal process started
+2022/08/05 12:23:12 [notice] 69#69: signal process started
+2022/08/09 10:20:26 [notice] 53#53: signal process started

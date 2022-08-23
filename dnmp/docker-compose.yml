@@ -1,0 +1,166 @@
+version: "3"
+services:
+  nginx:
+    image: 798787708/nginx:${NGINX_VERSION}
+    build:
+      context: ./builds/nginx
+      args:
+        NGINX_VERSION: nginx:${NGINX_VERSION}
+        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+        NGINX_INSTALL_APPS: ${NGINX_INSTALL_APPS}
+    container_name: nginx
+    depends_on:
+      - "php"
+      - "php74"
+      - "mysql"
+      - "redis"
+    ports:
+      - "${NGINX_HTTP_HOST_PORT}:80"
+      - "${NGINX_HTTPS_HOST_PORT}:443"
+      - "${NGINX_TEST_HOST_PORT}:8080"
+    volumes:
+      - ${SOURCE_DIR}:/www/:rw
+      - ${NGINX_SSL_CERTIFICATE_DIR}:/ssl:rw
+      - ${NGINX_CONFD_DIR}:/etc/nginx/conf.d/:rw
+      - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf:ro
+      - ${NGINX_FASTCGI_PHP_CONF}:/etc/nginx/fastcgi-php.conf:ro
+      - ${NGINX_FASTCGI_PARAMS}:/etc/nginx/fastcgi_params:ro
+      - ${NGINX_LOG_DIR}:/var/log/nginx/:rw
+    environment:
+      TZ: "$TZ"
+    restart: always
+    networks:
+      - mynet
+  php:
+    image: 798787708/php:${PHP_VERSION}
+    build:
+      context: ./builds/php
+      args:
+        PHP_VERSION: php:${PHP_VERSION}-fpm-alpine
+        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+        PHP_EXTENSIONS: ${PHP_EXTENSIONS}
+        TZ: "$TZ"
+    container_name: php
+    ports:
+      - "${PHP_SWOOLE_PORT}:9501"
+    expose:
+      - 9501
+    extra_hosts:
+      - "zhimei.cn:192.168.1.124"
+      - "zhimeir.cn:192.168.1.124"
+      - "shun-de-fan.cn:192.168.1.124"
+    volumes:
+      - ${SOURCE_DIR}:/www/:rw
+      - ${PHP_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
+      - ${PHP_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
+      - ${PHP_LOG_DIR}:/var/log/php
+      - ${DATA_DIR}/composer:/tmp/composer
+    restart: always
+    cap_add:
+      - SYS_PTRACE
+    networks:
+      - mynet
+  php74:
+    image: 798787708/php:${PHP74_VERSION}
+    build:
+      context: ./builds/php74
+      args:
+        PHP_VERSION: php:${PHP74_VERSION}-fpm-alpine
+        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+        PHP_EXTENSIONS: ${PHP74_EXTENSIONS}
+        TZ: "$TZ"
+    container_name: php74
+    extra_hosts:
+      - "zhimei.cn:192.168.1.123"
+      - "zhimeir.cn:192.168.1.123"
+      - "shun-de-fan.cn:192.168.1.123"
+    volumes:
+      - ${SOURCE_DIR}:/www/:rw
+      - ${PHP74_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
+      - ${PHP74_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
+      - ${PHP74_LOG_DIR}:/var/log/php
+      - ${DATA_DIR}/composer:/tmp/composer
+    restart: always
+    cap_add:
+      - SYS_PTRACE
+    networks:
+      - mynet
+  php8:
+    image: 798787708/php:${PHP8_VERSION}
+    build:
+      context: ./builds/php8
+      args:
+        PHP_VERSION: php:${PHP8_VERSION}-fpm-alpine
+        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+        PHP_EXTENSIONS: ${PHP8_EXTENSIONS}
+        TZ: "$TZ"
+    container_name: php8
+    extra_hosts:
+      - "zhimei.cn:192.168.1.123"
+      - "zhimeir.cn:192.168.1.123"
+      - "shun-de-fan.cn:192.168.1.123"
+    volumes:
+      - ${SOURCE_DIR}:/www/:rw
+      - ${PHP8_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
+      - ${PHP8_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
+      - ${PHP8_LOG_DIR}:/var/log/php
+      - ${DATA_DIR}/composer:/tmp/composer
+    restart: always
+    cap_add:
+      - SYS_PTRACE
+    networks:
+      - mynet
+  mysql:
+    image: 798787708/mysql:${MYSQL5_VERSION}
+    build:
+      context: ./builds/mysql
+      args:
+        MYSQL_VERSION: mysql:${MYSQL5_VERSION}
+    container_name: "mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL5_ROOT_PASSWORD}"
+      TZ: "$TZ"
+    # expose:
+    #    - 3306
+    ports:
+      - "${MYSQL5_HOST_PORT}:3306"
+    volumes:
+      - ${MYSQL5_LIB}:/var/lib/mysql/
+      - ${MYSQL5_LOG}:/var/log/mysql/
+      - ${MYSQL5_ETC}:/etc/mysql/mysql.conf.d/source/
+    networks:
+      - mynet
+  redis:
+    image: redis:${REDIS_VERSION}
+    container_name: "redis"
+    ports:
+      - "${REDIS_HOST_PORT}:6379"
+    volumes:
+      - ${REDIS_DATA}:/data/:rw
+      - ${REDIS_CONF_FILE}:/etc/redis.conf:ro
+    restart: always
+    entrypoint: [ "redis-server", "/etc/redis.conf" ]
+    environment:
+      - TZ="$TZ"
+    networks:
+      - mynet
+  rabbitmq:
+    image: 798787708/rabbitmq:${RABBITMQ_VERSION}
+    build:
+      context: ./builds/rabbitmq
+      args:
+        RABBITMQ_VERSION: ${RABBITMQ_VERSION}
+        RABBITMQ_PLUGINS: ${RABBITMQ_PLUGINS}
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - "${RABBITMQ_HOST_PORT_C}:5672"
+      - "${RABBITMQ_HOST_PORT_S}:15672"
+    environment:
+       TZ: "$TZ"
+       RABBITMQ_DEFAULT_USER: "${RABBITMQ_DEFAULT_USER}"
+       RABBITMQ_DEFAULT_PASS: "${RABBITMQ_DEFAULT_PASS}"
+    networks:
+        - default    
+networks:
+  mynet:
