@@ -46,9 +46,7 @@ services:
     expose:
       - 9501
     extra_hosts:
-      - "zhimei.cn:192.168.1.124"
-      - "zhimeir.cn:192.168.1.124"
-      - "shun-de-fan.cn:192.168.1.124"
+      - "api.weixin.qq.com:119.147.6.203"
     volumes:
       - ${SOURCE_DIR}:/www/:rw
       - ${PHP_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
@@ -71,9 +69,7 @@ services:
         TZ: "$TZ"
     container_name: php74
     extra_hosts:
-      - "zhimei.cn:192.168.1.123"
-      - "zhimeir.cn:192.168.1.123"
-      - "shun-de-fan.cn:192.168.1.123"
+      - "api.weixin.qq.com:119.147.6.203"
     volumes:
       - ${SOURCE_DIR}:/www/:rw
       - ${PHP74_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
@@ -96,9 +92,7 @@ services:
         TZ: "$TZ"
     container_name: php8
     extra_hosts:
-      - "zhimei.cn:192.168.1.123"
-      - "zhimeir.cn:192.168.1.123"
-      - "shun-de-fan.cn:192.168.1.123"
+      - "api.weixin.qq.com:119.147.6.203"
     volumes:
       - ${SOURCE_DIR}:/www/:rw
       - ${PHP8_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
@@ -161,6 +155,6 @@ services:
        RABBITMQ_DEFAULT_USER: "${RABBITMQ_DEFAULT_USER}"
        RABBITMQ_DEFAULT_PASS: "${RABBITMQ_DEFAULT_PASS}"
     networks:
-        - default    
+        - default
 networks:
   mynet:
