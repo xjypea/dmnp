@@ -1,0 +1,20 @@
+server {
+    listen       80;
+    server_name  tieyizhong.cn;
+    
+
+    location ^~ /ui {
+	    alias   /www/TieYiZhong-PHP/admin-ui/udist;
+	    index index.html index.htm;
+    }
+
+    location ^~ /ri {
+	    alias   /www/TieYiZhong-PHP/admin-ui/dist;
+	    index index.html index.htm;
+    }
+
+
+    location ^~ / {
+        proxy_pass http://php74:7878;
+    }
+}
